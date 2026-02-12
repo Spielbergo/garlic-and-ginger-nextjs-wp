@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import styles from './RecipeSidebar.module.css';
 
 export default function RecipeSidebar({ 
@@ -8,18 +7,9 @@ export default function RecipeSidebar({
   cookTime = "1 hour",
   totalTime = "1 hour 20 minutes",
   servings = "4-6 servings",
-  ingredients = [],
   optionalAddOns = [],
   nutrition = {}
 }) {
-  const [checkedIngredients, setCheckedIngredients] = useState({});
-
-  const toggleIngredient = (index) => {
-    setCheckedIngredients(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
-  };
 
   return (
     <aside className={styles.sidebar}>
@@ -45,30 +35,6 @@ export default function RecipeSidebar({
           </div>
         </div>
       </section>
-
-      {/* Ingredients */}
-      {ingredients.length > 0 && (
-        <section className={styles.section}>
-          <h3 className={styles.sectionTitle}>INGREDIENTS</h3>
-          <ul className={styles.ingredientsList}>
-            {ingredients.map((ingredient, index) => (
-              <li key={index} className={styles.ingredientItem}>
-                <label className={styles.checkboxLabel}>
-                  <input
-                    type="checkbox"
-                    checked={checkedIngredients[index] || false}
-                    onChange={() => toggleIngredient(index)}
-                    className={styles.checkbox}
-                  />
-                  <span className={checkedIngredients[index] ? styles.checkedText : ''}>
-                    {ingredient}
-                  </span>
-                </label>
-              </li>
-            ))}
-          </ul>
-        </section>
-      )}
 
       {/* Optional Add-Ons */}
       {optionalAddOns.length > 0 && (

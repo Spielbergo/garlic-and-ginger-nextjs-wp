@@ -2,12 +2,36 @@
   position: relative;
   width: 100%;
   margin-bottom: 3rem;
-  padding-top: 2rem;
+}
+
+.heroImage {
+  position: relative;
+  width: 100%;
+  height: 400px;
   background-color: #f5f5f0;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #f5f5f0 0%, #e8e8dd 100%);
+}
+
+.placeholderIcon {
+  font-size: 6rem;
+  opacity: 0.3;
 }
 
 .heroContent {
-  max-width: 1400px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 3rem 2rem 2rem;
   text-align: center;
@@ -36,46 +60,38 @@
 }
 
 .excerpt {
-  font-size: 1rem;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: #666;
-  max-width: 700px;
-  margin: 0 auto 2rem;
+  margin: 0 0 2rem;
 }
 
 .excerpt p {
   margin: 0;
 }
 
-.metaBadges {
+.metaInfo {
   display: flex;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  font-size: 0.9rem;
+  color: #666;
 }
 
-.metaBadge {
+.metaItem {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background-color: #1a1a1a;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 50px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.metaBadge:hover {
-  background-color: #333;
 }
 
 .metaIcon {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
+}
+
+.metaDivider {
+  color: #ccc;
 }
 
 @media (max-width: 768px) {
@@ -92,12 +108,11 @@
     letter-spacing: 1px;
   }
   
-  .subtitle {
-    font-size: 0.9rem;
+  .excerpt {
+    font-size: 1rem;
   }
   
-  .metaBadge {
-    font-size: 0.75rem;
-    padding: 0.6rem 1rem;
+  .metaInfo {
+    font-size: 0.85rem;
   }
 }

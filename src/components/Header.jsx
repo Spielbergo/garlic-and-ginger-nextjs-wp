@@ -12,7 +12,7 @@ export default function Header() {
   const navItems = [
     { href: '/', label: 'HOME' },
     { href: '/recipes', label: 'RECIPES' },
-    { href: '/cooking-tips', label: 'COOKING TIPS' },
+    { href: '/blog', label: 'BLOG' },
     { href: '/about-us', label: 'ABOUT US' },
   ];
 

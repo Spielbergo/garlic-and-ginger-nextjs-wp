@@ -9,7 +9,7 @@ const filterOptions = [
   'NOODLES',
   'SOUPS',
   'SPICE BLENDS',
-  'SNACKS',
+  'CURRIES',
   'DESSERT',
   'DRINKS',
 ];

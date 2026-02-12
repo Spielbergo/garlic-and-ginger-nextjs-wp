@@ -1,0 +1,118 @@
+.blogSection {
+  padding: 4rem 0;
+  background-color: white;
+  min-height: 60vh;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+  color: #1a1a1a;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.filterBar {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.filterBtn {
+  padding: 0.75rem 2rem;
+  border: 2px solid #1a1a1a;
+  background-color: transparent;
+  color: #1a1a1a;
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 50px;
+  text-transform: uppercase;
+}
+
+.filterBtn:hover {
+  background-color: #1a1a1a;
+  color: white;
+}
+
+.filterBtnActive {
+  background-color: #ff6b6b;
+  border-color: #ff6b6b;
+  color: white;
+}
+
+.filterBtnActive:hover {
+  background-color: #ff5252;
+  border-color: #ff5252;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 1rem;
+  opacity: 0.3;
+}
+
+.emptyText {
+  font-size: 1.125rem;
+  color: #666;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .blogSection {
+    padding: 3rem 0;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .filterBar {
+    gap: 0.75rem;
+  }
+
+  .filterBtn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.75rem;
+  }
+}

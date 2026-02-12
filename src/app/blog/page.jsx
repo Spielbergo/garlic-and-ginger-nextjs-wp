@@ -1,6 +1,18 @@
-import Link from 'next/link';
-import { BlogGrid, Header, Footer } from '@/components';
+import { Header, Footer, BlogSection, Newsletter } from '@/components';
 import { getAllBlogPosts } from '@/lib/wordpress';
+import styles from './blog.module.css';
+
+export const metadata = {
+  title: 'Blog - Cooking Tips, Stories & Articles',
+  description: 'Discover articles, cooking tips, and stories about garlic, ginger, and chillies. Learn new techniques and explore the world of spicy cuisine.',
+  keywords: ['cooking blog', 'garlic tips', 'ginger recipes', 'spicy food blog', 'culinary articles', 'cooking techniques'],
+  openGraph: {
+    title: 'Blog - Garlic and Ginger',
+    description: 'Discover articles, tips, and stories about cooking with garlic, ginger, and chillies.',
+    url: 'https://garlicandginger.ca/blog',
+    type: 'website',
+  },
+};
 
 export default async function BlogPage() {
   let posts = [];
@@ -12,30 +24,23 @@ export default async function BlogPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className={styles.page}>
       <Header />
 
-      {/* Page Content */}
-      <main className="container mx-auto px-4 py-12">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Blog</h1>
-        
-        {posts.length > 0 ? (
-          <BlogGrid posts={posts} />
-        ) : (
-          <div className="text-center py-12 bg-white rounded-lg border">
-            <p className="text-gray-600 mb-4">
-              No blog posts available yet. Check back soon!
-            </p>
-            <Link
-              href="/"
-              className="text-gray-900 hover:text-gray-600 font-semibold"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-        )}
-      </main>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <span className={styles.badge}>BLOG</span>
+          <h1 className={styles.title}>SPICE UP YOUR KNOWLEDGE</h1>
+          <p className={styles.subtitle}>
+            Explore our collection of articles, cooking tips, and stories celebrating the bold flavors of garlic, ginger, and chillies.
+          </p>
+        </div>
+      </section>
+
+      <BlogSection posts={posts} />
       
+      <Newsletter />
       <Footer />
     </div>
   );

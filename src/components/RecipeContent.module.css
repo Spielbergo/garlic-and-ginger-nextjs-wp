@@ -14,6 +14,105 @@
   border-bottom: 3px solid #1a1a1a;
 }
 
+/* Ingredients Section */
+.ingredientsSection {
+  margin-bottom: 4rem;
+}
+
+.ingredientsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e5e0;
+}
+
+.ingredientItem {
+  margin: 0;
+  border-bottom: 1px solid #f0f0eb;
+}
+
+.ingredientItem:last-child {
+  border-bottom: none;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #2c2c2c;
+  padding: 1rem 1.25rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.checkboxLabel:hover {
+  background-color: #fafaf8;
+}
+
+.checkboxLabel span {
+  flex: 1;
+  transition: all 0.3s ease;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #ff6b6b;
+  flex-shrink: 0;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.checkbox:hover {
+  transform: scale(1.1);
+}
+
+.checkboxLabel:has(.checkbox:checked) {
+  background-color: #f8f8f5;
+}
+
+.checkedText {
+  text-decoration: line-through;
+  color: #999;
+  opacity: 0.6;
+}
+
+/* Responsive columns */
+@media (min-width: 640px) {
+  .ingredientsList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .ingredientItem:nth-child(odd):not(:last-child) {
+    border-right: 1px solid #f0f0eb;
+  }
+}
+
+@media (min-width: 1024px) {
+  .ingredientsList {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .ingredientItem:nth-child(3n+1):not(:last-child),
+  .ingredientItem:nth-child(3n+2):not(:last-child) {
+    border-right: 1px solid #f0f0eb;
+  }
+  
+  .ingredientItem:nth-child(odd):not(:last-child) {
+    border-right: none;
+  }
+}
+
 .prose {
   font-size: 1rem;
   line-height: 1.75;

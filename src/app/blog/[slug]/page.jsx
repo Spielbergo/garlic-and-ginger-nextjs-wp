@@ -1,8 +1,14 @@
 import { notFound } from 'next/navigation';
-import Image from 'next/image';
-import Link from 'next/link';
-import { Header, Footer } from '@/components';
+import { 
+  Header, 
+  Footer, 
+  BlogHero, 
+  RecipeContent, 
+  RelatedPosts, 
+  Newsletter 
+} from '@/components';
 import { getBlogPostBySlug, getAllBlogPosts } from '@/lib/wordpress';
+import styles from './blogPost.module.css';
 
 export async function generateStaticParams() {
   try {
@@ -15,12 +21,66 @@ export async function generateStaticParams() {
   }
 }
 
+// Generate dynamic metadata for SEO
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  
+  try {
+    const post = await getBlogPostBySlug(slug);
+    
+    if (!post) {
+      return {
+        title: 'Post Not Found',
+      };
+    }
+
+    const imageUrl = post.featuredImage?.node?.sourceUrl || 'https://garlicandginger.ca/og-image.jpg';
+
+    return {
+      title: post.title,
+      description: post.excerpt?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read about ${post.title} on Garlic and Ginger blog.`,
+      keywords: ['garlic', 'ginger', 'spicy food', 'cooking tips', 'blog', post.title],
+      authors: [{ name: 'Garlic and Ginger Team' }],
+      openGraph: {
+        title: post.title,
+        description: post.excerpt?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read about ${post.title}`,
+        type: 'article',
+        url: `https://garlicandginger.ca/blog/${slug}`,
+        publishedTime: post.date,
+        images: [
+          {
+            url: imageUrl,
+            width: 1200,
+            height: 630,
+            alt: post.title,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title: post.title,
+        description: post.excerpt?.replace(/<[^>]*>/g, '').substring(0, 160) || `Read about ${post.title}`,
+        images: [imageUrl],
+      },
+    };
+  } catch (error) {
+    return {
+      title: 'Post Not Found',
+    };
+  }
+}
+
 export default async function BlogPostPage({ params }) {
   const { slug } = await params;
   
   let post;
+  let relatedPosts = [];
+  
   try {
     post = await getBlogPostBySlug(slug);
+    const allPosts = await getAllBlogPosts();
+    // Get related posts (exclude current post)
+    relatedPosts = allPosts.filter(p => p.slug !== slug).slice(0, 3);
   } catch (error) {
     console.error('Error fetching blog post:', error);
     notFound();
@@ -36,46 +96,63 @@ export default async function BlogPostPage({ params }) {
     day: 'numeric',
   });
 
+  const isoDate = new Date(post.date).toISOString();
+
+  // Article Schema for SEO
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": post.featuredImage?.node?.sourceUrl ? [post.featuredImage.node.sourceUrl] : [],
+    "datePublished": isoDate,
+    "dateModified": isoDate,
+    "author": {
+      "@type": "Organization",
+      "name": "Garlic and Ginger",
+      "url": "https://garlicandginger.ca"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Garlic and Ginger",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://garlicandginger.ca/favicon.svg"
+      }
+    },
+    "description": post.excerpt?.replace(/<[^>]*>/g, '') || `Read about ${post.title} on Garlic and Ginger blog.`,
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://garlicandginger.ca/blog/${post.slug}`
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className={styles.page}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      
       <Header />
 
-      {/* Blog Post Content */}
-      <article className="container mx-auto px-4 py-12">
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-          {post.featuredImage?.node.sourceUrl && (
-            <div className="relative h-96 w-full">
-              <Image
-                src={post.featuredImage.node.sourceUrl}
-                alt={post.featuredImage.node.altText || post.title}
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-          )}
-          
-          <div className="p-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-            <p className="text-gray-500 mb-8">{formattedDate}</p>
-            
-            <div 
-              className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-          </div>
-        </div>
+      <BlogHero
+        title={post.title}
+        excerpt={post.excerpt}
+        image={post.featuredImage?.node?.sourceUrl}
+        imageAlt={post.featuredImage?.node?.altText || post.title}
+        category="BLOG"
+        date={formattedDate}
+      />
 
-        {/* Back Link */}
-        <div className="max-w-4xl mx-auto mt-8">
-          <Link
-            href="/"
-            className="inline-flex items-center text-gray-900 hover:text-gray-600 font-semibold"
-          >
-            ← Back to Home
-          </Link>
+      <main className={styles.main}>
+        <div className={styles.container}>
+          <RecipeContent content={post.content} />
         </div>
-      </article>
+      </main>
+
+      <RelatedPosts posts={relatedPosts} />
+      
+      <Newsletter />
       
       <Footer />
     </div>

@@ -27,3 +27,8 @@ export { default as RecipeHero } from './RecipeHero';
 export { default as RecipeContent } from './RecipeContent';
 export { default as RecipeSidebar } from './RecipeSidebar';
 export { default as SimilarRecipes } from './SimilarRecipes';
+
+// Blog Page Components
+export { default as BlogHero } from './BlogHero';
+export { default as BlogSection } from './BlogSection';
+export { default as RelatedPosts } from './RelatedPosts';

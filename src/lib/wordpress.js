@@ -66,6 +66,7 @@ export async function getRecipeBySlug(slug) {
         title
         content
         date
+        excerpt
         featuredImage {
           node {
             sourceUrl
@@ -83,7 +84,7 @@ export async function getRecipeBySlug(slug) {
 export async function getAllBlogPosts() {
   const data = await fetchGraphQL(`
     query GetBlogPosts {
-      posts(where: {categoryIn: ["garlic-blog", "ginger-blog"]}, first: 100) {
+      posts(first: 100) {
         nodes {
           id
           title
@@ -96,12 +97,28 @@ export async function getAllBlogPosts() {
               altText
             }
           }
+          categories {
+            nodes {
+              name
+              slug
+            }
+          }
         }
       }
     }
   `);
 
-  return data.data.posts.nodes;
+  // Filter posts that have blog categories (garlic-blog, ginger-blog, chillies-blog)
+  const blogPosts = data.data.posts.nodes.filter(post => {
+    const categorySlugs = post.categories?.nodes?.map(cat => cat.slug) || [];
+    return categorySlugs.some(slug => 
+      slug === 'garlic-blog' || 
+      slug === 'ginger-blog' || 
+      slug === 'chillies-blog'
+    );
+  });
+
+  return blogPosts;
 }
 
 // Fetch single blog post by slug
