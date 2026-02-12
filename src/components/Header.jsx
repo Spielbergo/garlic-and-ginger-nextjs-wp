@@ -8,6 +8,7 @@ import styles from './Header.module.css';
 export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
     { href: '/', label: 'HOME' },
@@ -33,16 +34,29 @@ export default function Header() {
     };
   }, [isMobileMenuOpen]);
 
+  // Track scroll to add border/shadow when user scrolls
+  useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      setIsScrolled(y > 8);
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
-      <div className={styles.logo}>
+    <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
+      <div className={styles.headerInner}>
+        <div className={styles.logo}>
         <Link href="/" className={styles.logoText} style={{ fontFamily: 'var(--font-annie)' }}>
           Garlic and Ginger
         </Link>
       </div>
 
-      {/* Desktop Navigation */}
-      <nav className={styles.nav}>
+        {/* Desktop Navigation */}
+        <nav className={styles.nav}>
         {navItems.map((item) => (
           <Link 
             key={item.href}
@@ -54,21 +68,21 @@ export default function Header() {
         ))}
       </nav>
 
-      {/* Desktop Subscribe Button */}
-      <button className={styles.subscribeBtn}>SUBSCRIBE</button>
+        {/* Desktop Subscribe Button */}
+        <button className={styles.subscribeBtn}>SUBSCRIBE</button>
 
-      {/* Mobile Menu Button */}
-      <button 
-        className={styles.mobileMenuBtn}
-        onClick={() => setIsMobileMenuOpen(true)}
-        aria-label="Open menu"
-      >
-        <svg className={styles.hamburgerIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
+        {/* Mobile Menu Button */}
+        <button 
+          className={styles.mobileMenuBtn}
+          onClick={() => setIsMobileMenuOpen(true)}
+          aria-label="Open menu"
+        >
+          <svg className={styles.hamburgerIcon} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
 
-      {/* Mobile Menu Overlay */}
+        {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div 
           className={styles.overlay}
@@ -76,8 +90,8 @@ export default function Header() {
         />
       )}
 
-      {/* Mobile Menu */}
-      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+        {/* Mobile Menu */}
+        <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
         <div className={styles.mobileMenuHeader}>
           <div className={styles.mobileMenuLogo} style={{ fontFamily: 'var(--font-annie)' }}>
             Garlic and Ginger
@@ -106,7 +120,8 @@ export default function Header() {
         </nav>
 
         <button className={styles.mobileSubscribeBtn}>SUBSCRIBE</button>
+        </div>
       </div>
-    </header>
+      </header>
   );
 }

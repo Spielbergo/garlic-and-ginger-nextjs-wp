@@ -1,18 +1,34 @@
 /* Mobile-first Header Styles */
 
 .header {
-    background-color: rgb(245, 242, 237);
-    border-radius: 1rem;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    position: relative;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
-    max-width: 1880px;
-    border: 1px solid grey;
-    margin: 10px auto;
+  background-color: rgb(245, 242, 237);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  transition: box-shadow 180ms ease, border-bottom-color 180ms ease, background-color 180ms ease;
+  /* no border by default; border appears on scroll */
+  box-shadow: none;
+  margin: auto;
+  border-bottom: 1px solid transparent;
+  will-change: box-shadow, border-bottom-color, background-color;
+}
+
+/* Inner wrapper to control visual width without changing layout width */
+.headerInner {
+  width: 100%;
+  max-width: 1880px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+  transition: max-width 320ms cubic-bezier(.2,.9,.2,1), padding 320ms cubic-bezier(.2,.9,.2,1), border-radius 320ms cubic-bezier(.2,.9,.2,1), transform 320ms cubic-bezier(.2,.9,.2,1);
 }
 
 .logo {
@@ -194,10 +210,40 @@
   background-color: #FF6B47;
 }
 
+/* Header state when page is scrolled */
+.scrolled {
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 6px 18px;
+  border-bottom-color: #E5E7EB;
+  border-radius: 20px;
+  background-color: rgba(245,242,237,0.98);
+  /* width: 60%; */
+}
+
+/* When header has scrolled state, shrink the inner width smoothly */
+.header.scrolled .headerInner {
+  /* keep default on mobile; visual shrink only enabled on larger screens */
+  max-width: 100%;
+}
+
+@media (min-width: 768px) {
+  .header.scrolled .headerInner {
+    max-width: 1200px;
+    padding: 0 1rem;
+    border-radius: 12px;
+  }
+}
+
 /* Tablet and Desktop Styles */
 @media (min-width: 768px) {
   .header {
     padding: 1rem 2rem;
+  }
+
+  /* Header state when page is scrolled */
+  .scrolled {
+    border-radius: 20px;
+    width: 100%;
+    max-width: 1200px;
   }
 
   /* Show Desktop Navigation */
@@ -240,3 +286,5 @@
     display: none;
   }
 }
+
+
