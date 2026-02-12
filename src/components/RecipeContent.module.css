@@ -1,0 +1,229 @@
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.mainTitle {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 2rem;
+  color: #1a1a1a;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid #1a1a1a;
+}
+
+.prose {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #333;
+}
+
+/* Typography */
+.prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 3rem 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #e0e0e0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ff6b6b;
+  margin: 2.5rem 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.prose h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 2rem 0 1rem;
+}
+
+.prose p {
+  margin: 0 0 1.5rem;
+  line-height: 1.8;
+  color: #444;
+}
+
+.prose strong,
+.prose b {
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.prose em,
+.prose i {
+  font-style: italic;
+  color: #666;
+}
+
+/* Lists */
+.prose ul,
+.prose ol {
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin: 0.75rem 0;
+  line-height: 1.7;
+  color: #444;
+  padding-left: 0.5rem;
+}
+
+.prose li::marker {
+  color: #ff6b6b;
+  font-weight: 600;
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin: 0.5rem 0;
+}
+
+/* Links */
+.prose a {
+  color: #ff6b6b;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.prose a:hover {
+  color: #ff5252;
+}
+
+/* Images */
+.prose img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 2rem 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Blockquotes */
+.prose blockquote {
+  border-left: 4px solid #ff6b6b;
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: #666;
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+/* Code */
+.prose code {
+  background-color: #f5f5f0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-family: 'Courier New', Courier, monospace;
+  color: #ff6b6b;
+}
+
+.prose pre {
+  background-color: #1a1a1a;
+  color: #f5f5f0;
+  padding: 1.5rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.prose pre code {
+  background-color: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+}
+
+.prose th,
+.prose td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.prose th {
+  font-weight: 700;
+  color: #1a1a1a;
+  background-color: #f5f5f0;
+}
+
+.prose tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Horizontal rule */
+.prose hr {
+  border: none;
+  height: 2px;
+  background-color: #e0e0e0;
+  margin: 3rem 0;
+}
+
+/* Figure */
+.prose figure {
+  margin: 2rem 0;
+}
+
+.prose figcaption {
+  text-align: center;
+  font-size: 0.875rem;
+  color: #666;
+  margin-top: 0.75rem;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .mainTitle {
+    font-size: 1.5rem;
+  }
+  
+  .prose {
+    font-size: 0.95rem;
+  }
+  
+  .prose h2 {
+    font-size: 1.3rem;
+    margin: 2rem 0 1rem;
+  }
+  
+  .prose h3 {
+    font-size: 1.15rem;
+    margin: 1.5rem 0 0.75rem;
+  }
+  
+  .prose ul,
+  .prose ol {
+    padding-left: 1.25rem;
+  }
+}

@@ -1,12 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Recipe } from '@/types/recipe';
+import styles from './BlogCard.module.css';
 
-interface BlogCardProps {
-  post: Recipe;
-}
-
-export default function BlogCard({ post }: BlogCardProps) {
+export default function BlogCard({ post }) {
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -14,26 +10,26 @@ export default function BlogCard({ post }: BlogCardProps) {
   });
 
   return (
-    <Link href={`/blog/${post.slug}`} className="group block">
-      <article className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+    <Link href={`/blog/${post.slug}`} className={styles.cardLink}>
+      <article className={styles.card}>
         {post.featuredImage?.node.sourceUrl && (
-          <div className="relative h-64 w-full">
+          <div className={styles.imageWrapper}>
             <Image
               src={post.featuredImage.node.sourceUrl}
               alt={post.featuredImage.node.altText || post.title}
               fill
-              className="object-cover"
+              className={styles.image}
             />
           </div>
         )}
-        <div className="p-6">
-          <time className="text-sm text-gray-500 mb-2 block">{formattedDate}</time>
-          <h3 className="text-2xl font-semibold mb-3 group-hover:text-green-600 transition-colors">
+        <div className={styles.content}>
+          <time className={styles.date}>{formattedDate}</time>
+          <h3 className={styles.title}>
             {post.title}
           </h3>
           {post.excerpt && (
             <div 
-              className="text-gray-600 line-clamp-3"
+              className={styles.excerpt}
               dangerouslySetInnerHTML={{ __html: post.excerpt }}
             />
           )}

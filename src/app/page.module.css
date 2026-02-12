@@ -1,0 +1,616 @@
+/* Home Page Styles */
+
+.container {
+  min-height: 100vh;
+  background-color: #F5F2ED;
+  display: flex;
+  flex-direction: column;
+}
+ 
+.navLink {
+  font-weight: 600;
+  color: #3A2C1A;
+  text-decoration: none;
+}
+
+.navLink:hover {
+  color: #FF7A5C;
+}
+
+.navLinkActive {
+  font-weight: 600;
+  color: #3A2C1A;
+  border-bottom: 2px solid #FF7A5C;
+  text-decoration: none;
+}
+
+.subscribeBtn {
+  background-color: #3A2C1A;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.subscribeBtn:hover {
+  background-color: #2a1f12;
+}
+
+/* Hero Section */
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroOverlay {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.heroTitle {
+  color: white;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+  letter-spacing: -0.025em;
+}
+
+.heroSubtitle {
+  color: white;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 36rem;
+}
+
+.heroBtn {
+  background-color: #FFB48A;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.heroBtn:hover {
+  background-color: #FF7A5C;
+}
+
+/* Palette Section */
+.paletteSection {
+  width: 100%;
+  background-color: #D6EFFF;
+  border-radius: 1rem;
+  margin-top: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  display: flex;
+  flex-direction: row;
+  padding: 2rem;
+  gap: 2rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.paletteLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.paletteBadge {
+  background-color: #FF7A5C;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.paletteTitle {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #3A2C1A;
+}
+
+.paletteDescription {
+  color: #3A2C1A;
+  margin-bottom: 1rem;
+}
+
+.paletteSeeMoreBtn {
+  background-color: white;
+  border: 1px solid #FF7A5C;
+  color: #FF7A5C;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+.paletteRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.paletteRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.paletteItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.paletteIcon {
+  font-size: 1.5rem;
+}
+
+.paletteLabel {
+  font-weight: 600;
+  color: #3A2C1A;
+}
+
+/* Featured Recipes Section */
+.featuredSection {
+  max-width: 80rem;
+  margin: 3rem auto 0;
+  width: 100%;
+}
+
+.featuredTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #3A2C1A;
+}
+
+.featuredCards {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.featuredCard {
+  min-width: 340px;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.featuredCardImage {
+  border-radius: 0.75rem;
+  height: 10rem;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.featuredCardTitle {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #3A2C1A;
+}
+
+.featuredCardDescription {
+  color: #3A2C1A;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.featuredCardMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #FF7A5C;
+  margin-bottom: 0.5rem;
+}
+
+.viewRecipeBtn {
+  background-color: #FFB48A;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+}
+
+.viewRecipeBtn:hover {
+  background-color: #FF7A5C;
+}
+
+/* Recipe Grid Section */
+.recipeSection {
+  max-width: 80rem;
+  margin: 3rem auto 0;
+  width: 100%;
+}
+
+.recipeSectionHeader {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.recipeBadge {
+  background-color: #FF7A5C;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+}
+
+.recipeTitle {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #3A2C1A;
+}
+
+.recipeDescription {
+  color: #3A2C1A;
+  margin-bottom: 1rem;
+}
+
+.filterButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.filterBtn {
+  background-color: white;
+  border: 1px solid #3A2C1A;
+  color: #3A2C1A;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.filterBtnActive {
+  background-color: #D6EFFF;
+  color: #3A2C1A;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.recipeGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.recipeCard {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeCardImage {
+  border-radius: 0.75rem;
+  height: 8rem;
+  width: 100%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+}
+
+.recipeCardTitle {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+  color: #3A2C1A;
+}
+
+.recipeCardDescription {
+  color: #3A2C1A;
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.recipeCardMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #FF7A5C;
+  margin-bottom: 0.5rem;
+}
+
+/* About Us Section */
+.aboutSection {
+  max-width: 80rem;
+  margin: 3rem auto 0;
+  width: 100%;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.aboutLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.aboutBadge {
+  background-color: #FF7A5C;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  width: fit-content;
+  margin-bottom: 0.5rem;
+}
+
+.aboutTitle {
+  font-size: 1.875rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  color: #3A2C1A;
+}
+
+.aboutDescription {
+  color: #3A2C1A;
+  margin-bottom: 1rem;
+}
+
+.readMoreBtn {
+  background-color: #FFB48A;
+  color: white;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  width: fit-content;
+  border: none;
+  cursor: pointer;
+}
+
+.readMoreBtn:hover {
+  background-color: #FF7A5C;
+}
+
+.aboutRight {
+  flex: 1;
+  display: flex;
+  gap: 1rem;
+}
+
+.aboutImage {
+  border-radius: 0.75rem;
+  height: 8rem;
+  width: 8rem;
+  object-fit: cover;
+}
+
+/* Newsletter Section */
+.newsletterSection {
+  width: 100%;
+  background-color: #FF7A5C;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.newsletterBadge {
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.newsletterTitle {
+  color: white;
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.newsletterDescription {
+  color: white;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.newsletterForm {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 28rem;
+}
+
+.newsletterInput {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: none;
+}
+
+.newsletterBtn {
+  background-color: #3A2C1A;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+}
+
+.newsletterBtn:hover {
+  background-color: #2a1f12;
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background-color: #3A2C1A;
+  color: white;
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.footerContent {
+  max-width: 80rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footerLogoIcon {
+  background-color: #FFB48A;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  font-size: 1.125rem;
+}
+
+.footerLogoText {
+  font-weight: bold;
+  font-size: 1.125rem;
+}
+
+.footerNav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+}
+
+.footerLink:hover {
+  color: #FFB48A;
+}
+
+.footerSocial {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.footerSocialLink {
+  color: white;
+  text-decoration: none;
+}
+
+.footerSocialLink:hover {
+  color: #FFB48A;
+}
+
+.footerCopyright {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #FFB48A;
+  margin-top: 1rem;
+}
+
+/* Responsive Styles */
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.75rem;
+  }
+  
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+  
+  .featuredTitle {
+    font-size: 1.875rem;
+  }
+  
+  .recipeGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .aboutSection {
+    flex-direction: row;
+  }
+  
+  .footerContent {
+    flex-direction: row;
+  }
+}

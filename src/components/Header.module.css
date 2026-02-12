@@ -1,0 +1,242 @@
+/* Mobile-first Header Styles */
+
+.header {
+    background-color: rgb(245, 242, 237);
+    border-radius: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px;
+    max-width: 1880px;
+    border: 1px solid grey;
+    margin: 10px auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.logoText {
+  font-size: 2.25rem;
+  font-family: var(--font-annie);
+  text-decoration: none;
+}
+
+/* Desktop Navigation - Hidden on Mobile */
+.nav {
+  display: none;
+}
+
+.navLink,
+.navLinkActive {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.navLink {
+  color: #6B7280;
+}
+
+.navLink:hover {
+  color: #FF7A5C;
+}
+
+.navLinkActive {
+  color: #FF7A5C;
+}
+
+/* Desktop Subscribe Button - Hidden on Mobile */
+.subscribeBtn {
+  display: none;
+}
+
+/* Mobile Menu Button */
+.mobileMenuBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  color: #1F2937;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 10;
+}
+
+.hamburgerIcon {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 40;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 280px;
+  background-color: #F5F2ED;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobileMenuOpen {
+  transform: translateX(0);
+}
+
+.mobileMenuHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #E5E7EB;
+}
+
+.mobileMenuLogo {
+  font-size: 1.25rem;
+  color: #FF7A5C;
+  font-family: var(--font-annie);
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #6B7280;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.closeBtn:hover {
+  color: #FF7A5C;
+}
+
+.closeIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Mobile Navigation */
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: auto;
+}
+
+.mobileNavLink,
+.mobileNavLinkActive {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+
+.mobileNavLink {
+  color: #6B7280;
+}
+
+.mobileNavLink:hover {
+  background-color: rgba(255, 122, 92, 0.1);
+  color: #FF7A5C;
+}
+
+.mobileNavLinkActive {
+  background-color: #FF7A5C;
+  color: white;
+}
+
+.mobileSubscribeBtn {
+  background-color: #FF7A5C;
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.mobileSubscribeBtn:hover {
+  background-color: #FF6B47;
+}
+
+/* Tablet and Desktop Styles */
+@media (min-width: 768px) {
+  .header {
+    padding: 1rem 2rem;
+  }
+
+  /* Show Desktop Navigation */
+  .nav {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  /* Show Desktop Subscribe Button */
+  .subscribeBtn {
+    display: block;
+    background-color: #FF7A5C;
+    color: white;
+    padding: 0.625rem 1.5rem;
+    border: none;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+
+  .subscribeBtn:hover {
+    background-color: #FF6B47;
+  }
+
+  /* Hide Mobile Menu Button */
+  .mobileMenuBtn {
+    display: none;
+  }
+
+  /* Hide Mobile Menu on Desktop */
+  .mobileMenu {
+    display: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+}

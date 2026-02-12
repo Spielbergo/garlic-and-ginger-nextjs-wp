@@ -1,0 +1,88 @@
+.footer {
+  background-color: #2D2D2D;
+  color: white;
+  padding: 3rem 2rem 2rem;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.footerLogo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footerLogoIcon {
+  background-color: #FFB48A;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.footerLogoText {
+    font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 2.25rem;
+  color: white;
+}
+
+.footerNav {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footerLink {
+  color: #D1D5DB;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.footerLink:hover {
+  color: #FFB48A;
+}
+
+.footerSocial {
+  display: flex;
+  gap: 1rem;
+}
+
+.footerSocialLink {
+  background-color: #3D3D3D;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.footerSocialLink:hover {
+  background-color: #FFB48A;
+}
+
+.footerCopyright {
+  text-align: center;
+  color: #9CA3AF;
+  font-size: 0.875rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #3D3D3D;
+}

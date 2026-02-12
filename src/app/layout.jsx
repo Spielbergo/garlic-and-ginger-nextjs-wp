@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Inter, Annie_Use_Your_Telescope } from "next/font/google";
 import "./globals.css";
 
@@ -13,16 +12,15 @@ const annieFont = Annie_Use_Your_Telescope({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Garlic and Ginger - Delicious Recipes",
-  description: "A collection of delicious recipes and cooking tips",
+export const metadata = {
+  title: "Garlic and Ginger - Spicy Recipes",
+  description: "Bold, spicy recipes featuring garlic and ginger from around the world",
+  icons: {
+    icon: '/favicon.svg',
+  },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
